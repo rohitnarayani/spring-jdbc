@@ -1,4 +1,4 @@
-package com.spring.jdbc;
+package com.spring.jdbc.entities;
 
 public class Student {
 	private int id;
@@ -30,6 +30,4 @@ public class Student {
 		this.name = name;
 		this.city = city;
 	}
-	
-	
 }	
