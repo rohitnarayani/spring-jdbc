@@ -30,9 +30,19 @@ public class StudentDaoImpl implements StudentDao {
 		
 		return result;
 	}
+	
+	@Override
+	public int update(Student student) {
+		String query = "update student set name=?,city=? where id=?";
+		
+		int result = jdbcTemplate.update(query,student.getName(),student.getCity(),student.getId());
+		
+		return result;
+	}
 
 	public StudentDaoImpl() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 }

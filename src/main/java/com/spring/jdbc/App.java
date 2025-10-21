@@ -21,11 +21,11 @@ public class App
     	
     	Student student = new Student();
     	student.setId(4);
-    	student.setName("Ronnie");
+    	student.setName("Ronnie	");
     	student.setCity("Anand");
     	
-    	int result = studentDao.insert(student);
-    	
-    	System.out.println(result+" rows inserted...");
+//    	int result = studentDao.insert(student);
+    	int result = studentDao.update(student);
+    	System.out.println(result+" rows updated...");
     }
 }
