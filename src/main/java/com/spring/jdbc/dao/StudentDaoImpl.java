@@ -40,9 +40,21 @@ public class StudentDaoImpl implements StudentDao {
 		return result;
 	}
 
+	@Override
+	public int delete(int studentId) {
+		
+		String query = "delete from student where id=?";
+		
+		int result = jdbcTemplate.update(query,studentId);
+		
+		
+		return result;
+	}
+	
 	public StudentDaoImpl() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 
 }

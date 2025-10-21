@@ -25,7 +25,8 @@ public class App
     	student.setCity("Anand");
     	
 //    	int result = studentDao.insert(student);
-    	int result = studentDao.update(student);
-    	System.out.println(result+" rows updated...");
+//    	int result = studentDao.update(student);
+    	int result = studentDao.delete(2);
+    	System.out.println(result+" row deleted...");
     }
 }
