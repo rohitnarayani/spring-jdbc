@@ -27,6 +27,9 @@ public class App
 //    	int result = studentDao.insert(student);
 //    	int result = studentDao.update(student);
     	int result = studentDao.delete(2);
-    	System.out.println(result+" row deleted...");
+    	
+    	Student student2 = studentDao.getStudent(3);
+    	System.out.println(student2);
+//    	System.out.println(result+" row deleted...");
     }
 }
