@@ -1,7 +1,6 @@
 package com.spring.jdbc.dao;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -62,32 +61,38 @@ public class StudentDaoImpl implements StudentDao {
 		
 		RowMapper<Student> rowMapper = new RowMapperImpl();
 		
-//		Student student = jdbcTemplate.queryForObject(query,rowMapper,studentId);
+		Student student = jdbcTemplate.queryForObject(query,rowMapper,studentId);
 		
-		Object student = jdbcTemplate.queryForObject(query, new RowMapper() {
+//		Object student = jdbcTemplate.queryForObject(query, new RowMapper() {
 
-			@Override
-			public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
-				Student student = new Student();
-				student.setId(rs.getInt(1));
-				student.setName(rs.getString(2));
-				student.setCity(rs.getString(3));
-				
-				return student;
-			}
-				
-			
-			
-		} ,studentId);
+//			@Override
+//			public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
+//				Student student = new Student();
+//				student.setId(rs.getInt(1));
+//				student.setName(rs.getString(2));
+//				student.setCity(rs.getString(3));
+//				
+//				return student;
+//			}
+//				
+//			
+//			
+//		} ,studentId);
 		
-		return  (Student) student;
+		return   student;
+	}
+
+	public List<Student> getAllStudents() {
+		
+		String query = "select *  from student";
+		
+		List<Student> students = jdbcTemplate.query(query,new RowMapperImpl());
+		
+		return students;
 	}
 	
 	public StudentDaoImpl() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-
-
 }
